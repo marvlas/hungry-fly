@@ -14,6 +14,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 ### Milestone 1
 - [x]  Player initial position and size
 - [x]  Player movement by pressing keyboards keys
+- [ ]  Improve player movement speed and smoothness
 - [ ]  Targets position and size
 - [ ]  Targets popping up randomly and disappearing
 
