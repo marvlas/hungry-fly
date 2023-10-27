@@ -12,8 +12,8 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 ## Milestones
 
 ### Milestone 1
-- [ ]  Player initial position and size
-- [ ]  Player movement by pressing keyboards keys
+- [x]  Player initial position and size
+- [x]  Player movement by pressing keyboards keys
 - [ ]  Targets position and size
 - [ ]  Targets popping up randomly and disappearing
 
@@ -21,9 +21,10 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [ ]  Collision condition and formula
 - [ ]  Life score decreasing automatically
 - [ ]  Life score increasing when target is hit
+- [ ]  Setting board boundaries
 
 ### Milestone 3
-- [ ]  *Bonus* - Convert player to mouse hover & hit by clicking
+- [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking
 - [ ]  *Bonus* - Create false targets
 - [ ]  *Bonus* - Life decreases when false target is hit
 - [ ]  Game over condition
