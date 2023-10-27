@@ -4,11 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hungry Fly</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
+    <div class="titles-wrap">
+        <h1>Hungry Fly</h1>
+        <h2 id="game-description">Don't let the fly starve!</h2>
+    </div>
+    </div>
+    <div id="game-info" class="flex">
+        <p id="life-score">Life score: <span id="lifes-count">0</span></p>
+        <p id="timer">Timer: <span id="timer-count">00:00</span></p>
+    </div>
 
+
+    <div id="board">
+        <div id="player"></div>
+    </div>
+
+    <!-- Linking JS -->
+    <script src="./js/main.js"></script>
 </body>
 
 </html>
