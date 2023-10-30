@@ -72,11 +72,11 @@ const target = new Target();
 // Create and auomatically remove targets ** timeout 900, intervall 1000 **
 // const targetsArray = [];
 
-// const createTargets = () =>{
+// const createTargets = () => {
 //     const target = new Target();
 //     targetsArray.push(target);
 
-//     setTimeout(() =>{
+//     setTimeout(() => {
 //         targetsArray[0].targetElm.remove()
 //         targetsArray.shift();
 //     }, 900);
@@ -86,6 +86,7 @@ const target = new Target();
 
 
 document.addEventListener('keydown', (event) => {
+    // move player 
     switch (event.key) {
         case 'ArrowUp':
             player.moveUp()
@@ -101,18 +102,6 @@ document.addEventListener('keydown', (event) => {
             break;
     }
 
-
-
-
-    // detect player/target interesection
-    // if (
-    //     player.posX < target.posX + target.width &&
-    //     player.posX + player.width > target.posX &&
-    //     player.posY < target.posY + target.height &&
-    //     player.posY + player.height > target.posY
-    // ) {
-    //     console.log('there is an impact indeed!!')
-    // }
     // detect player/target interesection
     if (
         player.posX < target.posX + target.width &&
@@ -124,35 +113,16 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
-
-// function printMousePos(event) {
-//     document.body.textContent =
-//         "clientX: " + event.clientX +
-//         " - clientY: " + event.clientY;
-// }
-
-// document.addEventListener("click", (event) => {
-//     console.log(event)
-//     console.log("clientX: " + event.clientX)
-//     console.log(" - clientY: " + event.clientY)
-// });
+// Player's life points
+const lifePoints = document.getElementById('lives-count');
+lifePoints.innerHTML = 5;
 
 
+// set timer decreasing decreasing )
+const reduceLives = () =>{
+    if(lifePoints.innerHTML > 0){
+        lifePoints.innerHTML--;
+    }
+}
 
-// document.body.addEventListener('click', function (event) {
-//     if (player.playerElm.contains(event.target)) {
-//         console.log('clicked inside');
-//     } else {
-//         console.log('clicked outside');
-//     }
-// });
-
-
-// console.log('Player width: ' + player.width)
-// console.log('Player height: ' + player.height)
-// console.log('Player PosX: ' + player.posX)
-// console.log('Player PosY: ' + player.posY)
-// console.log('Target width: ' + target.width)
-// console.log('Target height: ' + target.height)
-// console.log('Target PosX: ' + target.posX)
-// console.log('Target PosY: ' + target.posY)
+setInterval(reduceLives, 2000);

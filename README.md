@@ -1,7 +1,7 @@
 # Hungry Fly
 
 ## Description
-The player moves across the board by using the mouse or arrow keys, and needs to hit targets popping up randomly on the board and disappearing after a few secs. The player life decreases automatically after a certain amount of time. If player hits targets life points increase, if players hit false targets the player life decreases. When the life score is 0 the game is over. There is a timer for records.
+The player moves across the board by using the mouse or arrow keys, and needs to hit targets popping up randomly on the board and disappearing after a few secs. The player's life decreases automatically after a certain amount of time. If player hits targets life points increase, if players hit false targets the player's life decreases. When the life score is 0 the game is over. There is a timer for records.
 
 ## How to play
 (to do)
@@ -19,9 +19,11 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 
 ### Milestone 2
 - [x]  Collision condition and formula
-- [ ]  Life score decreasing automatically
-- [ ]  Life score increasing when target is hit
+- [x]  Lives decreasing automatically
+- [ ]  Lives increasing when target is hit
 - [ ]  Setting board boundaries
+- [ ]  Build timer
+
 
 ### Milestone 3
 - [ ]  Improve player movement (diagonal movement, speed, smoothness)
@@ -29,7 +31,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [ ]  UX / UI
 - [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking
 - [ ]  *Bonus* - Create false targets
-- [ ]  *Bonus* - Life decreases when false target is hit
+- [ ]  *Bonus* - Lives decreases when false target is hit
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
 - [ ]  *Bonus* - Add life safers (golden poo)
 
