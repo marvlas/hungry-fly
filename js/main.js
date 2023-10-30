@@ -67,21 +67,21 @@ const player = new Player();
 
 
 
-// Create targets and remove automatically targets after 1s
+// Create and auomatically remove targets
 const targetsArray = [];
-
 
 const createTargets = () =>{
     const target = new Target();
     targetsArray.push(target);
-    
-    // Remove targets after 1s
+
     setTimeout(() =>{
         targetsArray[0].targetElm.remove()
         targetsArray.shift();
-    }, 1000)
+    }, 900);
 }
 
+
+setInterval(createTargets, 1000);
 
 
 document.addEventListener('keydown', (event) => {

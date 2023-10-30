@@ -15,7 +15,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Player initial position and size
 - [x]  Player movement by pressing keyboards keys
 - [x]  Targets position and size 
-- [ ]  Targets popping up randomly and disappearing
+- [x]  Targets popping up randomly and disappearing
 
 ### Milestone 2
 - [ ]  Collision condition and formula
