@@ -14,8 +14,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 ### Milestone 1
 - [x]  Player initial position and size
 - [x]  Player movement by pressing keyboards keys
-- [ ]  Improve player movement speed and smoothness
-- [ ]  Targets position and size
+- [x]  Targets position and size 
 - [ ]  Targets popping up randomly and disappearing
 
 ### Milestone 2
@@ -25,6 +24,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [ ]  Setting board boundaries
 
 ### Milestone 3
+- [ ]  Improve player movement (diagonal movement, speed, smoothness)
 - [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking
 - [ ]  *Bonus* - Create false targets
 - [ ]  *Bonus* - Life decreases when false target is hit
@@ -32,3 +32,8 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [ ]  UX / UI
 
 
+
+**Click Instructrions**
+1) Register a click event and store the mouse position
+2) Extend the mouse coordinates to cover a larger surface (for example leftLimit = mouseposition x - 10)
+3) Loop through all your bugs or whatever you need to be able to click on. Calculate the space and position they occupy on your screen. If the bug's limit are within the range of the mouse click, destroy it

@@ -1,7 +1,7 @@
 body {
     background-color: darkblue;
     color: #f9f9f9;
-    font-family: sans-serif;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 h1, h2 {
@@ -53,8 +53,14 @@ p {
 
 #player {
     position: absolute;
-    margin: auto;
     background-color: coral;
+    right: 0;
+    bottom: 0;
+}
+
+.target {
+    position: absolute;
+    background-color: brown;
     right: 0;
     bottom: 0;
 }
