@@ -20,10 +20,9 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 ### Milestone 2
 - [x]  Collision condition and formula
 - [x]  Lives decreasing automatically
-- [ ]  Lives increasing when target is hit
+- [x]  Lives increasing when target is hit
 - [ ]  Setting board boundaries
 - [ ]  Build timer
-
 
 ### Milestone 3
 - [ ]  Improve player movement (diagonal movement, speed, smoothness)

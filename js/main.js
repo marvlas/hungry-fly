@@ -16,19 +16,19 @@ class Player {
     }
 
     moveUp() {
-        this.posY -= 3;
+        this.posY -= 6;
         this.playerElm.style.top = this.posY + '%';
     }
     moveDown() {
-        this.posY += 3;
+        this.posY += 6;
         this.playerElm.style.top = this.posY + '%';
     }
     moveLeft() {
-        this.posX -= 3;
+        this.posX -= 6;
         this.playerElm.style.left = this.posX + '%';
     }
     moveRight() {
-        this.posX += 3;
+        this.posX += 6;
         this.playerElm.style.left = this.posX + '%';
     }
 }
@@ -66,23 +66,38 @@ class Target {
 const player = new Player();
 
 // ! Delete later
-const target = new Target();
+// const target = new Target();
 
 
-// Create and auomatically remove targets ** timeout 900, intervall 1000 **
+// create/remove auomatically targets, timeout 900 - interval 1000
 // const targetsArray = [];
 
-// const createTargets = () => {
-//     const target = new Target();
-//     targetsArray.push(target);
+let target = null;
+let targetHit;
 
-//     setTimeout(() => {
-//         targetsArray[0].targetElm.remove()
-//         targetsArray.shift();
-//     }, 900);
-// }
+const createTargets = () => {
+    target = new Target();
+    targetHit = false; 
 
-// setInterval(createTargets, 1000);
+    setTimeout(() => {
+        target.targetElm.remove();
+    }, 3_000); 
+}
+setInterval(createTargets, 3_500);
+
+
+// player's life points
+const lifePoints = document.getElementById('lives-count');
+lifePoints.innerHTML = 5;
+
+
+// set timer decreasing decreasing )
+const reduceLives = () =>{
+    if(lifePoints.innerHTML > 0){
+        lifePoints.innerHTML--;
+    }
+}
+setInterval(reduceLives, 2000);
 
 
 document.addEventListener('keydown', (event) => {
@@ -102,27 +117,17 @@ document.addEventListener('keydown', (event) => {
             break;
     }
 
-    // detect player/target interesection
+    // increase lives when player-target interesection occurs
     if (
+        // event.key == " " &&
+        !targetHit &&
         player.posX < target.posX + target.width &&
         player.posX + player.width > target.posX &&
         player.posY < target.posY + target.height &&
         player.posY + player.height > target.posY
     ) {
-        console.log('Intesection detected')
+        lifePoints.innerHTML++;;
+        targetHit = true;
     }
 })
 
-// Player's life points
-const lifePoints = document.getElementById('lives-count');
-lifePoints.innerHTML = 5;
-
-
-// set timer decreasing decreasing )
-const reduceLives = () =>{
-    if(lifePoints.innerHTML > 0){
-        lifePoints.innerHTML--;
-    }
-}
-
-setInterval(reduceLives, 2000);
