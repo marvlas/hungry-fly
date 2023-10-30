@@ -18,18 +18,23 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Targets popping up randomly and disappearing
 
 ### Milestone 2
-- [ ]  Collision condition and formula
+- [x]  Collision condition and formula
 - [ ]  Life score decreasing automatically
 - [ ]  Life score increasing when target is hit
 - [ ]  Setting board boundaries
 
 ### Milestone 3
 - [ ]  Improve player movement (diagonal movement, speed, smoothness)
+- [ ]  Game over condition
+- [ ]  UX / UI
 - [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking
 - [ ]  *Bonus* - Create false targets
 - [ ]  *Bonus* - Life decreases when false target is hit
-- [ ]  Game over condition
-- [ ]  UX / UI
+- [ ]  *Bonus* - Increase game speed after a certain amount of time
+- [ ]  *Bonus* - Add life safers (golden poo)
+
+
+
 
 
 
