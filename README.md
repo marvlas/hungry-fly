@@ -21,7 +21,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Collision condition and formula
 - [x]  Lives decreasing automatically
 - [x]  Lives increasing when target is hit
-- [ ]  Setting board boundaries for player
+- [x]  Setting board limits for player
 - [ ]  Create false targets
 - [ ]  Lives decreases when false target is hit
 
