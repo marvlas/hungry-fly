@@ -26,8 +26,8 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Lives decreases when obstacle is hit
 
 ### Milestone 3
-- [ ]  Improve player movement (diagonal movement, speed) smoothness)
 - [ ]  Game over condition
+- [ ]  Improve player movement (diagonal movement, speed) smoothness)
 - [ ]  UX / UI
 - [ ]  *Bonus* Build timer
 - [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking

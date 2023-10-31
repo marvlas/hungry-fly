@@ -39,7 +39,6 @@ function checkObstacleCollision() {
             player.posY < obstacle.posY + obstacle.height &&
             player.posY + player.height > obstacle.posY
         ) {
-            console.log('obstacle hit!')
             lifePoints.innerHTML--;
             obstacleHit = true;
         }

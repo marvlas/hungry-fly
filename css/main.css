@@ -26,18 +26,19 @@ p {
    margin: 16px 0;
 }
 
-.titles-wrap {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.container {
     margin: 0 auto;
     width: 70vw;
 }
 
+.titles-wrap {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 #game-info {
     display: flex;
-    width: 70vw;
-    margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -46,7 +47,6 @@ p {
     position: relative;
     margin-top: 20px;
     background-color: #e9e9e9;
-    margin: 0 auto;
     width: 70vw;
     height: 80vh;
 }
@@ -67,4 +67,15 @@ p {
 
 .obstacle {
     background-color: deeppink;
+}
+
+.btn {
+    padding: 16px 24px;
+    background-color: #f9f9f9;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-top: 32px;
+    display: inline-block;
 }
