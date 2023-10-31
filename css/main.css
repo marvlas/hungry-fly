@@ -31,12 +31,12 @@ p {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    width: 80vw;
+    width: 70vw;
 }
 
 #game-info {
     display: flex;
-    width: 80vw;
+    width: 70vw;
     margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
@@ -47,21 +47,24 @@ p {
     margin-top: 20px;
     background-color: #e9e9e9;
     margin: 0 auto;
-    width: 80vw;
+    width: 70vw;
     height: 80vh;
 }
 
-#player {
+#player, .target, .obstacle {
     position: absolute;
-    background-color: coral;
     right: 0;
     bottom: 0;
+}
+
+#player {
+    background-color: coral;
 }
 
 .target {
-    position: absolute;
     background-color: brown;
-    right: 0;
-    bottom: 0;
 }
 
+.obstacle {
+    background-color: deeppink;
+}

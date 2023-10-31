@@ -1,5 +1,4 @@
-
-
+// create player
 const player = new Player();
 
 // create/remove auomatically target
@@ -16,6 +15,8 @@ const createTargets = () => {
 }
 setInterval(createTargets, 3_500);
 
+// create moving obstacle
+const obstacle = new Obstacle();
 
 // player life points
 const lifePoints = document.getElementById('lives-count');

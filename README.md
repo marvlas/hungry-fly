@@ -22,8 +22,8 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Lives decreasing automatically
 - [x]  Lives increasing when target is hit
 - [x]  Setting board limits for player
-- [ ]  Create false targets
-- [ ]  Lives decreases when false target is hit
+- [x]  Create rotating obstacle
+- [ ]  Lives decreases when obstacle is hit
 
 ### Milestone 3
 - [ ]  Improve player movement (diagonal movement, speed) smoothness)
