@@ -26,3 +26,21 @@ class Target {
         this.targetElm.style.left = this.posX + "%";
     }
 }
+
+// check collision between player and obstacle
+function checkTargetCollision() {
+    if (player && target) {
+        if (
+            !targetHit &&
+            player &&
+            target &&
+            player.posX < target.posX + target.width &&
+            player.posX + player.width > target.posX &&
+            player.posY < target.posY + target.height &&
+            player.posY + player.height > target.posY
+        ) {
+            lifePoints.innerHTML++;
+            targetHit = true;
+        }
+    }
+}

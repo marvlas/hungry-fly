@@ -1,17 +1,16 @@
 class Obstacle {
-    constructor() {
+    constructor(width, height) {
         this.obstacleElm = null
 
         // target size & position values
-        this.width = 60;
-        this.height = 4;
+        this.width = width;
+        this.height = height;
 
         // randomize target position 
-        this.posX = 50 - (this.width / 2);
-        this.posY = 50 - (this.height / 2);
+        this.posX = Math.floor(Math.random() * (100 - this.width + 1));
+        this.posY = Math.floor(Math.random() * (100 - this.height + 1));
 
         this.createObstacle();
-        this.rotateObstacle();
     }
     createObstacle() {
         // Create target & append it to the DOM
@@ -26,14 +25,21 @@ class Obstacle {
         this.obstacleElm.style.top = this.posY + "%";
         this.obstacleElm.style.left = this.posX + "%";
     }
-    rotateObstacle() {
-        let rotation = 0;
-        const automateRotation = () => {
-            this.obstacleElm.style.transform = `rotate(${rotation}deg)`;
-            rotation += 1;
-        }
-
-        setInterval(automateRotation, 30);
-    }
 }
 
+// check collision between player and obstacle
+function checkObstacleCollision() {
+    if (player && obstacle) {
+        if (
+            !obstacleHit &&
+            player.posX < obstacle.posX + obstacle.width &&
+            player.posX + player.width > obstacle.posX &&
+            player.posY < obstacle.posY + obstacle.height &&
+            player.posY + player.height > obstacle.posY
+        ) {
+            console.log('obstacle hit!')
+            lifePoints.innerHTML--;
+            obstacleHit = true;
+        }
+    }
+}

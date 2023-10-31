@@ -1,5 +1,5 @@
 // game setup
-const lives = 5;
+const lives = 10;
 const moveFactorDefault = 6;
 
 class Player {
@@ -13,8 +13,8 @@ class Player {
         this.playerElm.style.height = this.height + "%";
 
         // player initial position
-        this.posX = 50 - (this.width / 2);
-        this.posY = 50 - (this.width / 2);
+        this.posX = 12
+        this.posY = 12
         this.playerElm.style.top = this.posY + "%";
         this.playerElm.style.left = this.posX + "%";
 
