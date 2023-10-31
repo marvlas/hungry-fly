@@ -26,10 +26,10 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Lives decreases when obstacle is hit
 
 ### Milestone 3
-- [ ]  Game over condition
-- [ ]  Improve player movement (diagonal movement, speed) smoothness)
+- [x]  Game over condition
+- [x]  Improve player movemen smoothness
 - [ ]  UX / UI
-- [ ]  *Bonus* Build timer
+- [ ]  *Bonus* - Build timer
 - [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
 - [ ]  *Bonus* - Add life safers (golden poo)
@@ -37,9 +37,3 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 
 
 
-
-
-**Click Instructrions**
-1) Register a click event and store the mouse position
-2) Extend the mouse coordinates to cover a larger surface (for example leftLimit = mouseposition x - 10)
-3) Loop through all your bugs or whatever you need to be able to click on. Calculate the space and position they occupy on your screen. If the bug's limit are within the range of the mouse click, destroy it

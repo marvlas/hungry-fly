@@ -1,5 +1,5 @@
 // game setup
-const lives = 1;
+const lives = 4;
 const moveFactorDefault = 6;
 
 class Player {
@@ -13,13 +13,16 @@ class Player {
         this.playerElm.style.height = this.height + "%";
 
         // player initial position
-        this.posX = 12
-        this.posY = 12
+        this.posX = 12;
+        this.posY = 12;
         this.playerElm.style.top = this.posY + "%";
         this.playerElm.style.left = this.posX + "%";
 
         //player move factor reset
         this.resetMoveFactor();
+
+        // add CSS transition properties
+        this.playerElm.style.transition = 'top 0.3s, left 0.3s';
     }
     resetMoveFactor() {
         this.moveFactor = moveFactorDefault; // set move factor

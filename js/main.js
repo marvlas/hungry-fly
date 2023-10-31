@@ -67,7 +67,7 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-setInterval(reduceLives, 3000);
+setInterval(reduceLives, 6000);
 
 
 document.addEventListener('keydown', (event) => {
@@ -89,10 +89,10 @@ document.addEventListener('keydown', (event) => {
 
 
 
-setInterval(() =>{
-  if(lifePoints.innerHTML == 0){
-    location.href = "./gameover.html";
-  }
+setInterval(() => {
+    if (lifePoints.innerHTML == 0) {
+        location.href = "./gameover.html";
+    }
 }, 30)
 
 
