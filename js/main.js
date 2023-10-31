@@ -19,7 +19,7 @@ const createTargets = () => {
 setInterval(createTargets, 3_500);
 
 
-// create moving obstacle
+// create/remove obstacles
 let obstacle;
 let obstacleHit;
 
@@ -41,6 +41,18 @@ const createHorizontalObstacle = () => {
     setInterval(checkObstacleCollision, 30); // obstacle-player collision detection
 }
 setInterval(createHorizontalObstacle, randomTime(minTime, maxTime));
+
+const createVerticallObstacle = () => {
+    verticalObstacle = new Obstacle(4, 60);
+    obstacleHit = false;
+
+    setTimeout(() => {
+        verticalObstacle.obstacleElm.remove();
+    }, 4_000);
+
+    setInterval(checkObstacleCollision, 30); // obstacle-player collision detection
+}
+setInterval(createVerticallObstacle, randomTime(minTime, maxTime));
 
 
 

@@ -1,5 +1,5 @@
 // game setup
-const lives = 10;
+const lives = 1;
 const moveFactorDefault = 6;
 
 class Player {
