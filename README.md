@@ -27,12 +27,12 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 
 ### Milestone 3
 - [x]  Game over condition
-- [x]  Improve player movemen smoothness
+- [x]  Improve player movement smoothness
 - [ ]  UX / UI
 - [ ]  *Bonus* - Build timer
-- [ ]  *Bonus* - User mouse cursor as a player and hit tag by clicking
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
 - [ ]  *Bonus* - Add life safers (golden poo)
+- [ ]  *Bonus* - Add diagonal movement
 
 
 

@@ -89,11 +89,11 @@ document.addEventListener('keydown', (event) => {
 
 
 
-setInterval(() => {
-    if (lifePoints.innerHTML == 0) {
-        location.href = "./gameover.html";
-    }
-}, 30)
+// setInterval(() => {
+//     if (lifePoints.innerHTML == 0) {
+//         location.href = "./gameover.html";
+//     }
+// }, 30)
 
 
 
