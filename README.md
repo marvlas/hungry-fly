@@ -29,6 +29,14 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 - [x]  Game over condition
 - [x]  Improve player movement smoothness
 - [ ]  UX / UI
+    - [x] Fly image
+    - [x] Background image
+    - [x] Obstacle image
+    - [x] UI Colors
+    - [ ] Fly sound 
+    - [ ] Electricity sound 
+    - [ ] Smashed poo 
+    - [ ] UI Fixes
 - [ ]  *Bonus* - Build timer
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
 - [ ]  *Bonus* - Add life safers (golden poo)

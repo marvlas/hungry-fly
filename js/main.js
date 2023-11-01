@@ -1,6 +1,10 @@
 // create player
 const player = new Player();
 
+// audio
+let flyBuzz = new Audio('../audio/fly-noise.mp3');
+flyBuzz.play;
+
 // create/remove auomatically target
 let target;
 let targetHit;
@@ -30,22 +34,27 @@ const randomTime = (minTime, maxTime) => {
     return Math.floor(Math.random() * (maxTime - minTime + 1) + minTime);
 }
 
-const createHorizontalObstacle = () => {
-    obstacle = new Obstacle(60, 4);
+// horizontal obstacles
+const createHorizontalObstacle = () => {  
+    horizontalObstacle = new Obstacle(60, 4);
     obstacleHit = false;
 
     setTimeout(() => {
-        obstacle.obstacleElm.remove();
+        horizontalObstacle.obstacleElm.remove();
     }, 4_000);
 
     setInterval(checkObstacleCollision, 30); // obstacle-player collision detection
 }
 setInterval(createHorizontalObstacle, randomTime(minTime, maxTime));
 
-const createVerticallObstacle = () => {
+// vertical obstacles
+const createVerticallObstacle = () => { 
     verticalObstacle = new Obstacle(4, 60);
     obstacleHit = false;
 
+    verticalObstacle.obstacleElm.classList.add('vertical-obstacle')
+    console.log(verticalObstacle.obstacleElm)
+    
     setTimeout(() => {
         verticalObstacle.obstacleElm.remove();
     }, 4_000);
@@ -67,7 +76,7 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-setInterval(reduceLives, 6000);
+// setInterval(reduceLives, 6000);
 
 
 document.addEventListener('keydown', (event) => {
@@ -87,6 +96,37 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+
+// check collision between player and obstacle
+function checkObstacleCollision() {
+    if (player && horizontalObstacle) {
+        if (
+            lifePoints.innerHTML > 0 &&
+            !obstacleHit &&
+            player.posX < horizontalObstacle.posX + horizontalObstacle.width &&
+            player.posX + player.width > horizontalObstacle.posX &&
+            player.posY < horizontalObstacle.posY + horizontalObstacle.height &&
+            player.posY + player.height > horizontalObstacle.posY
+        ) {
+            lifePoints.innerHTML--;
+            obstacleHit = true;
+        }
+    }
+
+    if (player && verticalObstacle) {
+        if (
+            lifePoints.innerHTML > 0 &&
+            !obstacleHit &&
+            player.posX < verticalObstacle.posX + verticalObstacle.width &&
+            player.posX + player.width > verticalObstacle.posX &&
+            player.posY < verticalObstacle.posY + verticalObstacle.height &&
+            player.posY + player.height > verticalObstacle.posY
+        ) {
+            lifePoints.innerHTML--;
+            obstacleHit = true;
+        }
+    }
+}
 
 
 // setInterval(() => {

@@ -7,7 +7,7 @@ class Player {
         this.playerElm = document.getElementById('player');
 
         // player size
-        this.width = 5;
+        this.width = 7;
         this.height = this.width;
         this.playerElm.style.width = this.width + "%";
         this.playerElm.style.height = this.height + "%";

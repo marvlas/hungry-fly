@@ -1,5 +1,5 @@
 body {
-    background-color: darkblue;
+    background-color: #22134c;
     color: #f9f9f9;
     font-family: 'Press Start 2P', sans-serif;
 }
@@ -46,9 +46,10 @@ p {
 #board {
     position: relative;
     margin-top: 20px;
-    background-color: #e9e9e9;
-    width: 70vw;
-    height: 80vh;
+    background-image: url(../images/grass-field.jpg);
+    background-size: cover;
+    width: 40vw;
+    height: 40vw;
 }
 
 #player, .target, .obstacle {
@@ -59,20 +60,27 @@ p {
 
 #player {
     background-image: url('../images/hungry-fly.gif');
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    z-index: 99;
+    z-index: 50;
 }
 
 .target {
-    background-color: brown;
+    background-image: url('../images/poop.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 30;
 }
 
 .obstacle {
-    background-image: url('../images/scoop.svg');
+    background-image: url('../images/electric-fence.png');
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: 9;
+    z-index: 10;
+}
+
+.vertical-obstacle {
+    background-image: url('../images/electric-fence-vertical.png');
 }
 
 .btn {

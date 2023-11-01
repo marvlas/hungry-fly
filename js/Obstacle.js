@@ -27,20 +27,3 @@ class Obstacle {
     }
 }
 
-
-// check collision between player and obstacle
-function checkObstacleCollision() {
-    if (player && obstacle) {
-        if (
-            lifePoints.innerHTML > 0 &&
-            !obstacleHit &&
-            player.posX < obstacle.posX + obstacle.width &&
-            player.posX + player.width > obstacle.posX &&
-            player.posY < obstacle.posY + obstacle.height &&
-            player.posY + player.height > obstacle.posY
-        ) {
-            lifePoints.innerHTML--;
-            obstacleHit = true;
-        }
-    }
-}
