@@ -7,7 +7,7 @@ class Player {
         this.playerElm = document.getElementById('player');
 
         // player size
-        this.width = 7;
+        this.width = 5;
         this.height = this.width;
         this.playerElm.style.width = this.width + "%";
         this.playerElm.style.height = this.height + "%";
@@ -22,7 +22,7 @@ class Player {
         this.resetMoveFactor();
 
         // add CSS transition properties
-        this.playerElm.style.transition = 'top 0.3s, left 0.3s';
+        this.playerElm.style.transition = 'top 0.1s, left 0.1s';
     }
     resetMoveFactor() {
         this.moveFactor = moveFactorDefault; // set move factor
