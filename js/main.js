@@ -1,7 +1,7 @@
 /******* VARIABLES *******/
 
 // create player
-const lives = 5;
+const lives = 100;
 const lifePoints = document.getElementById('lives-count');
 lifePoints.innerHTML = lives;
 const moveFactorDefault = 6;
@@ -99,7 +99,7 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-setInterval(reduceLives, 6000);
+// setInterval(reduceLives, 6000);
 
 
 // create & remove target with timer

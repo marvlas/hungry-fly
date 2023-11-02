@@ -5,35 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hungry Fly</title>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;600&family=Press+Start+2P&display=swap" rel="stylesheet">    Linking CSS -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <div class="titles-wrap container">
+    <header class="header">
         <div>
             <img src="./images/fly-logo.png" alt="">
             <h1>HUNGRY FLY</h1>
             <h2>Don't let the fly starve!</h2>
         </div>
-    </div>
-    </div>
-
+        <nav>
+            <a class="help" href="./help.html">Game instructions</a>
+        </nav>
+    </header>
 
     <div id="game-info" class="container">
         <p id="life-points">Life points: <span id="lives-count"></span></p>
         <p id="timer">Timer: <span id="timer-count">00:00</span></p>
     </div>
-
-
     <div id="board" class="container">
         <div id="player"></div>
     </div>
 
 
+    <!-- Audio files -->
     <audio id="fly-audio" loop>
         <source src="./audio/fly-noise.mp3" type="audio/mpeg">
     </audio>
