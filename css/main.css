@@ -13,6 +13,7 @@ h1, h2 {
 }
 
 h1 {
+    text-transform: uppercase;
     font-size: 40px;
     font-weight: bold;
     padding-top: 24px;
@@ -139,34 +140,9 @@ header img {
     color: #22134c;
 }
 
-.rotate-up {
-    transform: rotate(270deg);
-}
-  
-.rotate-down {
-transform: rotate(90deg);
-}
-
-.rotate-left {
-transform: rotate(180deg);
-}
-
-.rotate-right {
-transform: rotate(0deg);
-}
-
-.hidden {
-    opacity: 0;
-} 
-
 #page-gameover .container, #page-help .container {
     padding-top: 10vh;
     text-align: center;
-}
-
-
-#page-gameover h1 {
-    text-transform: uppercase;
 }
 
 #page-gameover img {
@@ -189,3 +165,42 @@ transform: rotate(0deg);
     font-size: 20px;
     max-width: 560px;
 }
+
+/* Game style */
+
+.rotate-up {
+    transform: rotate(270deg);
+}
+  
+.rotate-down {
+transform: rotate(90deg);
+}
+
+.rotate-left {
+transform: rotate(180deg);
+}
+
+.rotate-right {
+transform: rotate(0deg);
+}
+
+.rotate-up-right {
+    transform: rotate(315deg);
+}
+
+.rotate-up-left {
+    transform: rotate(225deg);
+}
+
+.rotate-down-right {
+    transform: rotate(45deg);
+}
+
+.rotate-down-left {
+    transform: rotate(135deg);
+}
+
+
+.hidden {
+    opacity: 0;
+} 

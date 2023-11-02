@@ -99,7 +99,7 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-// setInterval(reduceLives, 6000);
+setInterval(reduceLives, 6000);
 
 
 // create & remove target with timer
@@ -165,30 +165,68 @@ setInterval(() => {
 
 
 // move player
+
+// Keep track of which arrow keys are currently pressed
+const keysPressed = {};
+
 document.addEventListener('keydown', (event) => {
-    switch (event.key) {
-        case 'ArrowUp':
-            player.moveUp();
-            player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right');
-            player.playerElm.classList.add('rotate-up');
-            break;
-        case 'ArrowDown':
-            player.moveDown();
-            player.playerElm.classList.remove('rotate-up', 'rotate-left', 'rotate-right');
-            player.playerElm.classList.add('rotate-down');
-            break;
-        case 'ArrowLeft':
-            player.moveLeft();
-            player.playerElm.classList.remove('rotate-up', 'rotate-down', 'rotate-right');
-            player.playerElm.classList.add('rotate-left');
-            break;
-        case 'ArrowRight':
-            player.moveRight();
-            player.playerElm.classList.remove('rotate-up', 'rotate-down', 'rotate-left');
-            player.playerElm.classList.add('rotate-right');
-            break;
+    keysPressed[event.key] = true;
+
+    // diagonal movements
+    if (keysPressed['ArrowUp'] && keysPressed['ArrowRight']) {
+        player.moveUp();
+        player.moveRight();
+        player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right', 'rotate-up-left', 'rotate-down-right', 'rotate-down-left');
+        player.playerElm.classList.add('rotate-up-right');
+    } else if (keysPressed['ArrowUp'] && keysPressed['ArrowLeft']) {
+        player.moveUp();
+        player.moveLeft();
+        player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right', 'rotate-up-right', 'rotate-down-right', 'rotate-down-left');
+        player.playerElm.classList.add('rotate-up-left');
+    } else if (keysPressed['ArrowDown'] && keysPressed['ArrowRight']) {
+        player.moveDown();
+        player.moveRight();
+        player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right', 'rotate-up-right', 'rotate-up-left', 'rotate-down-left');
+        player.playerElm.classList.add('rotate-down-right');
+    } else if (keysPressed['ArrowDown'] && keysPressed['ArrowLeft']) {
+        player.moveDown();
+        player.moveLeft();
+        player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right', 'rotate-up-right', 'rotate-up-left', 'rotate-down-right');
+        player.playerElm.classList.add('rotate-down-left');
+    } else {
+        // horizontal & movements
+        switch (event.key) {
+            case 'ArrowUp':
+                player.moveUp();
+                player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right', 'rotate-up-right', 'rotate-up-left', 'rotate-down-right', 'rotate-down-left');
+                player.playerElm.classList.add('rotate-up');
+                break;
+            case 'ArrowDown':
+                player.moveDown();
+                player.playerElm.classList.remove('rotate-up', 'rotate-left', 'rotate-right', 'rotate-up-right', 'rotate-up-left', 'rotate-down-right', 'rotate-down-left');
+                player.playerElm.classList.add('rotate-down');
+    
+                break;
+            case 'ArrowLeft':
+                player.moveLeft();
+                player.playerElm.classList.remove('rotate-up', 'rotate-down', 'rotate-right', 'rotate-up-right', 'rotate-up-left', 'rotate-down-right', 'rotate-down-left');
+                player.playerElm.classList.add('rotate-left');
+    
+                break;
+            case 'ArrowRight':
+                player.moveRight();
+                player.playerElm.classList.remove('rotate-up', 'rotate-down', 'rotate-left', 'rotate-up-right', 'rotate-up-left', 'rotate-down-right', 'rotate-down-left');
+                player.playerElm.classList.add('rotate-right');
+                break;
+        }
     }
 });
+
+document.addEventListener('keyup', (event) => {
+    delete keysPressed[event.key];
+});
+
+
 
 
 // play player audio

@@ -1,10 +1,7 @@
 # Hungry Fly
 
-## Description
-The player moves across the board by using the mouse or arrow keys, and needs to hit targets popping up randomly on the board and disappearing after a few secs. The player's life decreases automatically after a certain amount of time. If player hits targets life points increase, if players hit false targets the player's life decreases. When the life score is 0 the game is over. There is a timer for records.
-
 ## How to play
-(to do)
+A fly is hungry and needs your help! Move the fly using the arrow keys. Collect targets (represented by poop emojis) that you'll find along the way. Be cautious, as the neighbor Bob has installed electric obstacles that you must avoid.
 
 ## MVP
 The player can be moved and needs to hit targets popping up and disappearing from the board.
@@ -39,7 +36,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
     - [x] UI Fixes
 - [ ]  *Bonus* - Build timer
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
-- [ ]  *Bonus* - Add diagonal movement
+- [x]  *Bonus* - Add diagonal movement
 
 
 
