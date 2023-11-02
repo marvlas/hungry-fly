@@ -60,16 +60,13 @@ const checkHorizontalCollision = () =>{
             player.posY < horizontalObstacle.posY + horizontalObstacle.height &&
             player.posY + player.height > horizontalObstacle.posY
         ) {
-            lifePoints.innerHTML--;
-            horizontalObstacleHit = true;
-
             const electricSound = document.getElementById("shock-audio");
             electricSound.volume = .3;
             electricSound.play();
+
+            lifePoints.innerHTML--;
+            horizontalObstacleHit = true;
         }
-    }
-    if (horizontalObstacleHit === true){
-        horizontalObstacle.obstacleElm.classList.add('hidden');
     }
 }
 
@@ -85,16 +82,13 @@ const checkVerticalCollision = () =>{
             player.posY < verticalObstacle.posY + verticalObstacle.height &&
             player.posY + player.height > verticalObstacle.posY
         ) {
-            lifePoints.innerHTML--;
-            verticalObstacleHit = true;
-
-            const electricSound = document.getElementById("shock-audio");
+            const electricSound = document.getElementById("shock-audio2");
             electricSound.volume = .3;
             electricSound.play();
+
+            lifePoints.innerHTML--;
+            verticalObstacleHit = true;
         }
-    }
-    if (verticalObstacleHit === true){
-        verticalObstacle.obstacleElm.classList.add('hidden');
     }
 }
 

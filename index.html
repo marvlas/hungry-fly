@@ -5,19 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hungry Fly</title>
-    <style>@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');</style>
-    <!-- Linking CSS -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;600&family=Press+Start+2P&display=swap" rel="stylesheet">    Linking CSS -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
     <div class="titles-wrap container">
-        <h1>Hungry Fly</h1>
-        <h2 id="game-description">Don't let the fly starve!</h2>
+        <div>
+            <img src="./images/fly-logo.png" alt="">
+            <h1>HUNGRY FLY</h1>
+            <h2>Don't let the fly starve!</h2>
+        </div>
     </div>
     </div>
-    <div id="game-info" class="flex container">
+
+
+    <div id="game-info" class="container">
         <p id="life-points">Life points: <span id="lives-count"></span></p>
         <p id="timer">Timer: <span id="timer-count">00:00</span></p>
     </div>
@@ -32,6 +38,9 @@
         <source src="./audio/fly-noise.mp3" type="audio/mpeg">
     </audio>
     <audio id="shock-audio">
+        <source src="./audio/electric-shock.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="shock-audio2">
         <source src="./audio/electric-shock.mp3" type="audio/mpeg">
     </audio>
     <audio id="scored-audio">

@@ -28,7 +28,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
 ### Milestone 3
 - [x]  Game over condition
 - [x]  Improve player movement smoothness
-- [ ]  UX / UI
+- [x]  UX / UI
     - [x] Fly image
     - [x] Background image
     - [x] Obstacle image
@@ -36,7 +36,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
     - [x] Fly sound 
     - [x] Electricity sound 
     - [x] Smashed poo 
-    - [ ] UI Fixes
+    - [x] UI Fixes
 - [ ]  *Bonus* - Build timer
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
 - [ ]  *Bonus* - Add diagonal movement

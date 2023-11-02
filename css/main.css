@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;600&family=Press+Start+2P&display=swap');
+
 body {
     background-color: #22134c;
     color: #f9f9f9;
-    font-family: 'Press Start 2P', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 h1, h2 {
+    font-family: 'Press Start 2P', sans-serif;
     text-align: center;
     display: inline-block;
 }
@@ -17,8 +20,10 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
-    margin-left: 16px;
+    font-size: 22px;
+    margin-left: 32px;
+    letter-spacing: 1.2px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 
@@ -32,20 +37,28 @@ p {
 }
 
 .titles-wrap {
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.titles-wrap img {
+    height: 50px;
+    margin-right: 24px;
 }
 
 #game-info {
+    width: 40vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-family: 'Press Start 2P', sans-serif;
 }
 
 #board {
     position: relative;
-    margin-top: 20px;
     background-image: url(../images/grass-field.jpg);
     background-size: cover;
     width: 40vw;
@@ -87,13 +100,21 @@ p {
 
 .btn {
     padding: 16px 24px;
-    background-color: #f9f9f9;
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #81b009;
+    color: white;
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;
     border-radius: 8px;
     margin-top: 32px;
     display: inline-block;
+    transition: ease-in-out .2s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #22134c;
 }
 
 .rotate-up {
@@ -116,5 +137,15 @@ transform: rotate(0deg);
     opacity: 0;
 } 
 
+#page-gameover .container {
+    padding-top: 15vh;
+    text-align: center;
+}
 
-/* .schock {} */
+#page-gameover h1 {
+    text-transform: uppercase;
+}
+
+#page-gameover img {
+    max-width: 360px;
+}
