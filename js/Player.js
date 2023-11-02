@@ -1,6 +1,4 @@
 // game setup
-const lives = 4;
-const moveFactorDefault = 6;
 
 class Player {
     constructor() {

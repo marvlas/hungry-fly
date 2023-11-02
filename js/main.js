@@ -1,23 +1,114 @@
+/******* VARIABLES *******/
+
 // create player
-const player = new Player();
+const lives = 4;
+const lifePoints = document.getElementById('lives-count');
+lifePoints.innerHTML = lives;
+const moveFactorDefault = 6;
 
+const player = new Player(); 
 
-// audio
-const flyBuzz = document.getElementById("myAudio");
-flyBuzz.volume = .1;
-const lifeSound = new Audio('../audio/scored.mp3');
-const gameOverSound = new Audio('../audio/game-over.mp3');
-
-
-// window.addEventListener('DOMContentLoaded', event => {
-//     flyBuzz.play();
-// })
-
-
-// create/remove auomatically target
+// target & obstacles
 let target;
-let targetHit;
+let horizontalObstacle;
+let verticalObstacle;
+let targetHit; // flag
+let horizontalObstacleHit; // flag
+let verticalObstacleHit; // flag
 
+// obstacles reation time range
+const minTime = 6000;  
+const maxTime = 12000;
+
+
+
+/******* FUNCTIONALITIES *******/
+
+// check player-target collision
+const checkTargetCollision = () =>{
+    if (player && target) {
+        if (
+            !targetHit &&
+            player &&
+            target &&
+            player.posX < target.posX + target.width &&
+            player.posX + player.width > target.posX &&
+            player.posY < target.posY + target.height &&
+            player.posY + player.height > target.posY
+        ) {
+            lifePoints.innerHTML++;
+            targetHit = true;
+
+            const lifeSound = new Audio('../audio/scored.mp3');
+            lifeSound.play();
+        }
+    }
+    if (targetHit === true){
+        target.targetElm.classList.add('hidden');
+    }
+}
+
+
+// check player-horizontal obstacle collision
+const checkHorizontalCollision = () =>{
+    if (player && horizontalObstacle) {
+        if (
+            lifePoints.innerHTML > 0 &&
+            !horizontalObstacleHit &&
+            player.posX < horizontalObstacle.posX + horizontalObstacle.width &&
+            player.posX + player.width > horizontalObstacle.posX &&
+            player.posY < horizontalObstacle.posY + horizontalObstacle.height &&
+            player.posY + player.height > horizontalObstacle.posY
+        ) {
+            lifePoints.innerHTML--;
+            horizontalObstacleHit = true;
+
+            const electricSound = new Audio('../audio/electric-shock.mp3');
+            electricSound.volume = .3;
+            electricSound.play();
+        }
+    }
+    if (horizontalObstacleHit === true){
+        horizontalObstacle.obstacleElm.classList.add('hidden');
+    }
+}
+
+
+// check player-vertical obstacle collision
+const checkVerticalCollision = () =>{
+    if (player && verticalObstacle) {
+        if (
+            lifePoints.innerHTML > 0 &&
+            !verticalObstacleHit &&
+            player.posX < verticalObstacle.posX + verticalObstacle.width &&
+            player.posX + player.width > verticalObstacle.posX &&
+            player.posY < verticalObstacle.posY + verticalObstacle.height &&
+            player.posY + player.height > verticalObstacle.posY
+        ) {
+            lifePoints.innerHTML--;
+            verticalObstacleHit = true;
+
+            const electricSound = new Audio('../audio/electric-shock.mp3');
+            electricSound.volume = .3;
+            electricSound.play();
+        }
+    }
+    if (verticalObstacleHit === true){
+        verticalObstacle.obstacleElm.classList.add('hidden');
+    }
+}
+
+
+// decrease lives automatically
+const reduceLives = () => {
+    if (lifePoints.innerHTML > 0) {
+        lifePoints.innerHTML--;
+    }
+}
+setInterval(reduceLives, 6000);
+
+
+// create & remove target with timer
 const createTargets = () => {
     target = new Target();
     targetHit = false;
@@ -31,20 +122,13 @@ const createTargets = () => {
 setInterval(createTargets, 3500);
 
 
-// create/remove obstacles
-let horizontalObstacle;
-let verticalObstacle;
-let horizontalObstacleHit;
-let verticalObstacleHit;
-
-const minTime = 6000;
-const maxTime = 12000;
-
+// pick random time within range
 const randomTime = (minTime, maxTime) => {
     return Math.floor(Math.random() * (maxTime - minTime + 1) + minTime);
 }
 
-// horizontal obstacles
+
+// create horizontal obstacles
 const createHorizontalObstacle = () => {
     horizontalObstacle = new Obstacle(60, 4);
     horizontalObstacleHit = false;
@@ -58,8 +142,8 @@ const createHorizontalObstacle = () => {
 setInterval(createHorizontalObstacle, randomTime(minTime, maxTime));
 
 
-// vertical obstacles
-const createVerticallObstacle = () => {
+// create vertical obstacles
+const createVerticalObstacle = () => {
     verticalObstacle = new Obstacle(4, 60);
     verticalObstacleHit = false;
 
@@ -71,21 +155,19 @@ const createVerticallObstacle = () => {
 
     setInterval(checkVerticalCollision, 30); // obstacle-player collision detection
 }
-setInterval(createVerticallObstacle, randomTime(minTime, maxTime));
+setInterval(createVerticalObstacle, randomTime(minTime, maxTime));
 
 
-// player life points
-const lifePoints = document.getElementById('lives-count');
-lifePoints.innerHTML = lives;
-
-
-// decrease lives automatically
-const reduceLives = () => {
-    if (lifePoints.innerHTML > 0) {
-        lifePoints.innerHTML--;
+// game over condition
+setInterval(() => {
+    if (lifePoints.innerHTML == 0) {
+        const gameOverSound = new Audio('../audio/game-over.mp3');
+        gameOverSound.play();
+        setTimeout(() => {
+            location.href = "./gameover.html";
+        }, 2000)
     }
-}
-// setInterval(reduceLives, 6000);
+}, 30)
 
 
 // move player
@@ -115,86 +197,14 @@ document.addEventListener('keydown', (event) => {
 });
 
 
-
-// check collision between player and target
-function checkTargetCollision() {
-    if (player && target) {
-        if (
-            !targetHit &&
-            player &&
-            target &&
-            player.posX < target.posX + target.width &&
-            player.posX + player.width > target.posX &&
-            player.posY < target.posY + target.height &&
-            player.posY + player.height > target.posY
-        ) {
-            lifePoints.innerHTML++;
-            lifeSound.play();
-            targetHit = true;
-        }
-    }
-    if (targetHit === true){
-        target.targetElm.classList.add('hidden');
-    }
-}
+// play player audio
+window.addEventListener('DOMContentLoaded', event => {
+    const flyBuzz = document.getElementById("myAudio");
+    flyBuzz.volume = .1;
+    flyBuzz.play();
+})
 
 
-// check collision between player and obstacle
-function checkHorizontalCollision() {
-    if (player && horizontalObstacle) {
-        if (
-            lifePoints.innerHTML > 0 &&
-            !horizontalObstacleHit &&
-            player.posX < horizontalObstacle.posX + horizontalObstacle.width &&
-            player.posX + player.width > horizontalObstacle.posX &&
-            player.posY < horizontalObstacle.posY + horizontalObstacle.height &&
-            player.posY + player.height > horizontalObstacle.posY
-        ) {
-            lifePoints.innerHTML--;
-            
-            const electricSound = new Audio('../audio/electric-shock.mp3');
-            electricSound.volume = .3;
-            electricSound.play();
-            horizontalObstacleHit = true;
-        }
-    }
-    if (horizontalObstacleHit === true){
-        horizontalObstacle.obstacleElm.classList.add('hidden');
-    }
-}
-
-function checkVerticalCollision() {
-    if (player && verticalObstacle) {
-        if (
-            lifePoints.innerHTML > 0 &&
-            !verticalObstacleHit &&
-            player.posX < verticalObstacle.posX + verticalObstacle.width &&
-            player.posX + player.width > verticalObstacle.posX &&
-            player.posY < verticalObstacle.posY + verticalObstacle.height &&
-            player.posY + player.height > verticalObstacle.posY
-        ) {
-            lifePoints.innerHTML--;
-
-            const electricSound = new Audio('../audio/electric-shock.mp3');
-            electricSound.volume = .3;
-            electricSound.play();
-            verticalObstacleHit = true;
-        }
-    }
-    if (verticalObstacleHit === true){
-        verticalObstacle.obstacleElm.classList.add('hidden');
-    }
-}
-
-// game over condition
-setInterval(() => {
-    if (lifePoints.innerHTML == 0) {
-        gameOverSound.play();
-        setTimeout(() => {
-            location.href = "./gameover.html";
-        }, 2000)
-    }
-}, 30)
 
 
 
