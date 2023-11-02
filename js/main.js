@@ -1,15 +1,18 @@
 // create player
 const player = new Player();
 
+
 // audio
 const electricSound = new Audio('../audio/electric-shock.mp3');
 electricSound.volume = .3;
 const flyBuzz = document.getElementById("myAudio");
+flyBuzz.volume = .1;
 const lifeSound = new Audio('../audio/scored.mp3');
 const gameOverSound = new Audio('../audio/game-over.mp3');
 
+
+flyBuzz.play();
 window.addEventListener('DOMContentLoaded', event => {
-    flyBuzz.volume = .1;
     flyBuzz.play();
 })
 
@@ -24,17 +27,18 @@ const createTargets = () => {
 
     setTimeout(() => {
         target.targetElm.remove();
-    }, 3_000);
+    }, 3000);
 
     setInterval(checkTargetCollision, 30); // target-player collision detection
 }
-setInterval(createTargets, 3_500);
+setInterval(createTargets, 3500);
 
 
 // create/remove obstacles
 let horizontalObstacle;
 let verticalObstacle;
-let obstacleHit;
+let horizontalObstacleHit;
+let verticalObstacleHit;
 
 const minTime = 6000;
 const maxTime = 12000;
@@ -46,7 +50,7 @@ const randomTime = (minTime, maxTime) => {
 // horizontal obstacles
 const createHorizontalObstacle = () => {
     horizontalObstacle = new Obstacle(60, 4);
-    obstacleHit = false;
+    horizontalObstacleHit = false;
 
     setTimeout(() => {
         horizontalObstacle.obstacleElm.remove();
@@ -56,10 +60,11 @@ const createHorizontalObstacle = () => {
 }
 setInterval(createHorizontalObstacle, randomTime(minTime, maxTime));
 
+
 // vertical obstacles
 const createVerticallObstacle = () => {
     verticalObstacle = new Obstacle(4, 60);
-    obstacleHit = false;
+    verticalObstacleHit = false;
 
     verticalObstacle.obstacleElm.classList.add('vertical-obstacle')
 
@@ -70,7 +75,6 @@ const createVerticallObstacle = () => {
     setInterval(checkVerticalCollision, 30); // obstacle-player collision detection
 }
 setInterval(createVerticallObstacle, randomTime(minTime, maxTime));
-
 
 
 // player life points
@@ -84,9 +88,10 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-setInterval(reduceLives, 6000);
+// setInterval(reduceLives, 6000);
 
 
+// move player
 document.addEventListener('keydown', (event) => {
     switch (event.key) {
         case 'ArrowUp':
@@ -139,7 +144,7 @@ function checkHorizontalCollision() {
     if (player && horizontalObstacle) {
         if (
             lifePoints.innerHTML > 0 &&
-            !obstacleHit &&
+            !horizontalObstacleHit &&
             player.posX < horizontalObstacle.posX + horizontalObstacle.width &&
             player.posX + player.width > horizontalObstacle.posX &&
             player.posY < horizontalObstacle.posY + horizontalObstacle.height &&
@@ -147,7 +152,7 @@ function checkHorizontalCollision() {
         ) {
             lifePoints.innerHTML--;
             electricSound.play();
-            obstacleHit = true;
+            horizontalObstacleHit = true;
         }
     }
 }
@@ -156,7 +161,7 @@ function checkVerticalCollision() {
     if (player && verticalObstacle) {
         if (
             lifePoints.innerHTML > 0 &&
-            !obstacleHit &&
+            !verticalObstacleHit &&
             player.posX < verticalObstacle.posX + verticalObstacle.width &&
             player.posX + player.width > verticalObstacle.posX &&
             player.posY < verticalObstacle.posY + verticalObstacle.height &&
@@ -164,12 +169,12 @@ function checkVerticalCollision() {
         ) {
             lifePoints.innerHTML--;
             electricSound.play();
-            obstacleHit = true;
+            verticalObstacleHit = true;
         }
     }
 }
 
-
+// game over condition
 setInterval(() => {
     if (lifePoints.innerHTML == 0) {
         gameOverSound.play();
