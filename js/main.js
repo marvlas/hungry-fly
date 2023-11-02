@@ -1,7 +1,7 @@
 /******* VARIABLES *******/
 
 // create player
-const lives = 100;
+const lives = 5;
 const lifePoints = document.getElementById('lives-count');
 lifePoints.innerHTML = lives;
 const moveFactorDefault = 6;
@@ -243,7 +243,7 @@ window.onload = function () {
     let addMinutes = document.getElementById("minutes");
     let addSeconds = document.getElementById("seconds");
     let interval;
-    
+
     // start the timer on page load
     interval = setInterval(startTimer, 1000);
 
