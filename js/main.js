@@ -88,7 +88,7 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-// setInterval(reduceLives, 6000);
+setInterval(reduceLives, 6000);
 
 
 // move player
