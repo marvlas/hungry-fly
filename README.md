@@ -34,7 +34,7 @@ The player can be moved and needs to hit targets popping up and disappearing fro
     - [x] Electricity sound 
     - [x] Smashed poo 
     - [x] UI Fixes
-- [ ]  *Bonus* - Build timer
+- [x]  *Bonus* - Build timer
 - [ ]  *Bonus* - Increase game speed after a certain amount of time
 - [x]  *Bonus* - Add diagonal movement
 

@@ -194,7 +194,7 @@ document.addEventListener('keydown', (event) => {
         player.playerElm.classList.remove('rotate-down', 'rotate-left', 'rotate-right', 'rotate-up-right', 'rotate-up-left', 'rotate-down-right');
         player.playerElm.classList.add('rotate-down-left');
     } else {
-        // horizontal & movements
+        // horizontal & vertical movements
         switch (event.key) {
             case 'ArrowUp':
                 player.moveUp();
@@ -227,8 +227,6 @@ document.addEventListener('keyup', (event) => {
 });
 
 
-
-
 // play player audio
 window.addEventListener('DOMContentLoaded', event => {
     const flyBuzz = document.getElementById("fly-audio");
@@ -237,6 +235,37 @@ window.addEventListener('DOMContentLoaded', event => {
 })
 
 
+
+// timer
+window.onload = function () {
+    let seconds = 0;
+    let minutes = 0;
+    let addMinutes = document.getElementById("minutes");
+    let addSeconds = document.getElementById("seconds");
+    let interval;
+    
+    // start the timer on page load
+    interval = setInterval(startTimer, 1000);
+
+    function startTimer() {
+        seconds++;
+
+        if (seconds <= 9) {
+            addSeconds.innerHTML = "0" + seconds;
+        }
+        if (seconds > 9) {
+            addSeconds.innerHTML = seconds;
+        }
+        if (seconds > 59) {
+            minutes++;
+            addMinutes.innerHTML = minutes <= 9 ? "0" + minutes : minutes;
+            seconds = 0;
+            addSeconds.innerHTML = "00";
+        }
+    }
+};
+
+  
 
 
 
