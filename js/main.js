@@ -3,18 +3,15 @@ const player = new Player();
 
 
 // audio
-const electricSound = new Audio('../audio/electric-shock.mp3');
-electricSound.volume = .3;
 const flyBuzz = document.getElementById("myAudio");
 flyBuzz.volume = .1;
 const lifeSound = new Audio('../audio/scored.mp3');
 const gameOverSound = new Audio('../audio/game-over.mp3');
 
 
-flyBuzz.play();
-window.addEventListener('DOMContentLoaded', event => {
-    flyBuzz.play();
-})
+// window.addEventListener('DOMContentLoaded', event => {
+//     flyBuzz.play();
+// })
 
 
 // create/remove auomatically target
@@ -82,13 +79,13 @@ const lifePoints = document.getElementById('lives-count');
 lifePoints.innerHTML = lives;
 
 
-// set timer decreasing lives automatically
+// decrease lives automatically
 const reduceLives = () => {
     if (lifePoints.innerHTML > 0) {
         lifePoints.innerHTML--;
     }
 }
-setInterval(reduceLives, 6000);
+// setInterval(reduceLives, 6000);
 
 
 // move player
@@ -119,7 +116,7 @@ document.addEventListener('keydown', (event) => {
 
 
 
-// check collision between player and obstacle
+// check collision between player and target
 function checkTargetCollision() {
     if (player && target) {
         if (
@@ -136,6 +133,9 @@ function checkTargetCollision() {
             targetHit = true;
         }
     }
+    if (targetHit === true){
+        target.targetElm.classList.add('hidden');
+    }
 }
 
 
@@ -151,9 +151,15 @@ function checkHorizontalCollision() {
             player.posY + player.height > horizontalObstacle.posY
         ) {
             lifePoints.innerHTML--;
+            
+            const electricSound = new Audio('../audio/electric-shock.mp3');
+            electricSound.volume = .3;
             electricSound.play();
             horizontalObstacleHit = true;
         }
+    }
+    if (horizontalObstacleHit === true){
+        horizontalObstacle.obstacleElm.classList.add('hidden');
     }
 }
 
@@ -168,9 +174,15 @@ function checkVerticalCollision() {
             player.posY + player.height > verticalObstacle.posY
         ) {
             lifePoints.innerHTML--;
+
+            const electricSound = new Audio('../audio/electric-shock.mp3');
+            electricSound.volume = .3;
             electricSound.play();
             verticalObstacleHit = true;
         }
+    }
+    if (verticalObstacleHit === true){
+        verticalObstacle.obstacleElm.classList.add('hidden');
     }
 }
 

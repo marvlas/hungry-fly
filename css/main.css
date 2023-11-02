@@ -70,6 +70,8 @@ p {
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 30;
+    opacity: 1;
+    transition: all 1s;
 }
 
 .obstacle {
@@ -113,4 +115,6 @@ transform: rotate(0deg);
 .hidden {
     opacity: 0;
 } 
-  
+
+
+/* .schock {} */
