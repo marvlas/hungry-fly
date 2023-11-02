@@ -1,7 +1,7 @@
 /******* VARIABLES *******/
 
 // create player
-const lives = 4;
+const lives = 5;
 const lifePoints = document.getElementById('lives-count');
 lifePoints.innerHTML = lives;
 const moveFactorDefault = 6;
@@ -39,7 +39,7 @@ const checkTargetCollision = () =>{
             lifePoints.innerHTML++;
             targetHit = true;
 
-            const lifeSound = new Audio('../audio/scored.mp3');
+            const lifeSound = document.getElementById("scored-audio");
             lifeSound.play();
         }
     }
@@ -63,7 +63,7 @@ const checkHorizontalCollision = () =>{
             lifePoints.innerHTML--;
             horizontalObstacleHit = true;
 
-            const electricSound = new Audio('../audio/electric-shock.mp3');
+            const electricSound = document.getElementById("shock-audio");
             electricSound.volume = .3;
             electricSound.play();
         }
@@ -88,7 +88,7 @@ const checkVerticalCollision = () =>{
             lifePoints.innerHTML--;
             verticalObstacleHit = true;
 
-            const electricSound = new Audio('../audio/electric-shock.mp3');
+            const electricSound = document.getElementById("shock-audio");
             electricSound.volume = .3;
             electricSound.play();
         }
@@ -161,7 +161,7 @@ setInterval(createVerticalObstacle, randomTime(minTime, maxTime));
 // game over condition
 setInterval(() => {
     if (lifePoints.innerHTML == 0) {
-        const gameOverSound = new Audio('../audio/game-over.mp3');
+        const gameOverSound = document.getElementById("gameover-audio");
         gameOverSound.play();
         setTimeout(() => {
             location.href = "./gameover.html";
@@ -199,7 +199,7 @@ document.addEventListener('keydown', (event) => {
 
 // play player audio
 window.addEventListener('DOMContentLoaded', event => {
-    const flyBuzz = document.getElementById("myAudio");
+    const flyBuzz = document.getElementById("fly-audio");
     flyBuzz.volume = .1;
     flyBuzz.play();
 })
