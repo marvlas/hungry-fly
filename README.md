@@ -16,7 +16,7 @@ A fly is hungry and needs your help! Move the fly using the arrow keys. Collect 
 
 ## The game
 Here you can play "Hungry Fly":<br/><br/>
-[>>> Go to the game](https://marvlas.github.io/hungry-fly/help.html/)
+[>>> Go to the game](https://marvlas.github.io/hungry-fly/help.html)
 
 ## MVP
 The player can be moved and needs to hit targets popping up and disappearing from the board.
