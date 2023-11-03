@@ -14,6 +14,10 @@ A fly is hungry and needs your help! Move the fly using the arrow keys. Collect 
 
 ![Tux, the Linux mascot](./images/game-preview.jpg)
 
+## The game
+Here you can play "Hungry Fly":<br/><br/>
+[>>> Go to the game](https://marvlas.github.io/hungry-fly/)
+
 ## MVP
 The player can be moved and needs to hit targets popping up and disappearing from the board.
 
