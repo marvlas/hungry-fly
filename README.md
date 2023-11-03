@@ -1,7 +1,18 @@
 # Hungry Fly
 
+
+## Description
+"Hungry Fly" is an arcade-inspired web-based game where the player must move quickly to collect targets and avoid obstacles.
+The game is built using the following technologies:
+
+- Vanilla JavaScript
+- HTML5
+- CSS3
+
 ## How to play
 A fly is hungry and needs your help! Move the fly using the arrow keys. Collect targets (represented by poop emojis) that you'll find along the way. Be cautious, as the neighbor Bob has installed electric obstacles that you must avoid.
+
+![Tux, the Linux mascot](./images/game-preview.jpg)
 
 ## MVP
 The player can be moved and needs to hit targets popping up and disappearing from the board.

@@ -61,7 +61,7 @@ const checkHorizontalCollision = () =>{
             player.posY + player.height > horizontalObstacle.posY
         ) {
             const electricSound = document.getElementById("shock-audio");
-            electricSound.volume = .3;
+            electricSound.volume = .05;
             electricSound.play();
 
             lifePoints.innerHTML--;
@@ -83,7 +83,7 @@ const checkVerticalCollision = () =>{
             player.posY + player.height > verticalObstacle.posY
         ) {
             const electricSound = document.getElementById("shock-audio2");
-            electricSound.volume = .3;
+            electricSound.volume = .05;
             electricSound.play();
 
             lifePoints.innerHTML--;
@@ -99,7 +99,7 @@ const reduceLives = () => {
         lifePoints.innerHTML--;
     }
 }
-setInterval(reduceLives, 6000);
+setInterval(reduceLives, 4000);
 
 
 // create & remove target with timer
@@ -111,7 +111,7 @@ const createTargets = () => {
         target.targetElm.remove();
     }, 3000);
 
-    setInterval(checkTargetCollision, 30); // target-player collision detection
+    setInterval(checkTargetCollision, 15); // target-player collision detection
 }
 setInterval(createTargets, 3500);
 
@@ -131,7 +131,7 @@ const createHorizontalObstacle = () => {
         horizontalObstacle.obstacleElm.remove();
     }, 4_000);
 
-    setInterval(checkHorizontalCollision, 30); // obstacle-player collision detection
+    setInterval(checkHorizontalCollision, 10); // obstacle-player collision detection
 }
 setInterval(createHorizontalObstacle, randomTime(minTime, maxTime));
 
@@ -147,7 +147,7 @@ const createVerticalObstacle = () => {
         verticalObstacle.obstacleElm.remove();
     }, 4_000);
 
-    setInterval(checkVerticalCollision, 30); // obstacle-player collision detection
+    setInterval(checkVerticalCollision, 10); // obstacle-player collision detection
 }
 setInterval(createVerticalObstacle, randomTime(minTime, maxTime));
 
